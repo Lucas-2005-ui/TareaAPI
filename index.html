@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Quién es ese Pokémon?</title>
+    <meta name="description" content="Minijuego clásico para adivinar el Pokémon oculto usando su silueta.">
+    <!-- Fuentes de Google para una tipografía moderna -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+    <!-- Vincula nuestro estilo -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Icono de pestala, opcional -->
+    <link rel="icon" href="favicon/Pokaball.png">
+</head>
+
+<body>
+    <div class=" app-container">
+        <!-- Contenido principal interactivo -->
+        <div class="main-content">
+            <header class="game-header">
+                <h1>¿Quién es ese Pokémon?</h1>
+                <p>¡Adivina el Pokémon oculto por su silueta!</p>
+            </header>
+
+            <main class="game-card">
+                <!-- Aquí se inyectará dinámicamente la imagen -->
+                <div class="image-container" id="image-container">
+                    <div class="loader" id="loader">Cargando...</div>
+                </div>
+
+                <!-- Formulario con input de texto y botón -->
+                <form id="guess-form" class="guess-form">
+                    <input type="text" id="guess-input" class="guess-input"
+                        placeholder="Escribe el nombre del Pokémon..." autocomplete="off" required disabled>
+                    <div style="display: flex; gap: 12px; width: 100%;">
+                        <button type="submit" id="submit-btn" class="submit-btn" disabled>Adivinar</button>
+                        <button type="button" id="skip-btn" class="skip-btn" disabled>No lo sé (Saltar)</button>
+                    </div>
+                </form>
+
+                <!-- Mensajes de victoria o error -->
+                <div id="message-container" class="message-container"></div>
+
+                <!-- Botón para jugar una nueva ronda -->
+                <button id="next-btn" class="next-btn hidden">Jugar de nuevo</button>
+            </main>
+        </div>
+
+        <!-- Barra lateral como Historial de Capturas -->
+        <aside class="history-sidebar">
+            <div class="history-header">
+                <h2>Caja de Capturas</h2>
+                <span id="catch-count" class="badge">0</span>
+            </div>
+
+            <div id="history-grid" class="history-grid">
+                <!-- Mensaje para cuando esté vacío -->
+                <div id="empty-history" class="empty-history">
+                    <p>Aún no has capturado ningún Pokémon.</p>
+                </div>
+                <!-- Aquí se inyectan las miniaturas dinámicamente -->
+            </div>
+        </aside>
+    </div>
+
+    <!-- Vincula nuestra lógica -->
+    <script src="script.js"></script>
+</body>
+
+</html>
